@@ -9,11 +9,21 @@
 /*   Updated: 2023/07/12 16:30:02 by cvidot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *format, ...)
 {
+	va_list	args;
+	va_start(args, format);
+	const char	*arg = format;
+
+	//test variadic func by printing all args
+	while(arg != NULL)
+	{
+		printf("%s\n", arg);
+		arg = va_arg(args, const char*);
+	}
+
 	//if argc>1 and arg0 has no % or arg0 !str or nbr % != nbr args
 	//return
 	//
@@ -23,14 +33,12 @@ int	ft_printf(const char *, ...)
 		//parse/write string until %
 			//check format
 
+	va_end(args);
+	return (0);
 }
 
 int	main(void)
 {
-	char *str = "String";
-	int nbr = 15;
-	char c = 'a';
-
 /* %c Prints a single character.
 • %s Prints a string (as defined by the common C convention).
 • %p The void * pointer argument has to be printed in hexadecimal format.
@@ -41,14 +49,6 @@ int	main(void)
 • %X Prints a number in hexadecimal (base 16) uppercase format.
 • %% Prints a percent sign.
 */
-	ft_printf("%c\n", c);
-	ft_printf("%s\n", str);
-	ft_printf("%p\n", *ptr);
-	ft_printf("%d\n", num);
-	ft_printf("%i\n", uns_num);
-	ft_printf("%u\n", uns_decnum);
-	ft_printf("%x\n", hexlow);
-	ft_printf("%X\n", hexupp);
-	ft_printf("%%\n", percent);
+	ft_printf("hi", "hello", "hey", NULL);
 	return 0;
 }
