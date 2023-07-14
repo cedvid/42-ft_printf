@@ -15,30 +15,37 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	va_start(args, format);
-	const char	*arg = format;
+	int ret_val;
 
-	//test variadic func by printing all args
-	while(arg != NULL)
+	ret_val = 0;
+	while (*format)
 	{
-		printf("%s\n", arg);
-		arg = va_arg(args, const char*);
+		if (*format == '%')
+			check_format
+		{
+			format++;
+			if (*format == 'c')
+				ret_val += ft_putchar(va_arg(args, int));
+			if (*format == 's')
+				ret_val += ft_putstr(va_arg(args, char *));
+			if (*format == '%')
+				ret_val += ft_putchar('%');
+			
+		}
+		else
+			ft_putchar(*format);
+		format++;
 	}
-
-	//if argc>1 and arg0 has no % or arg0 !str or nbr % != nbr args
-	//return
-	//
-	//if argc == 1
-	//print str
-	//return
-		//parse/write string until %
-			//check format
-
 	va_end(args);
-	return (0);
+	return (ret_val);
 }
 
-int	main(void)
-{
+// int	main(void)
+// {
+
+// 	return 0;
+// }
+
 /* %c Prints a single character.
 • %s Prints a string (as defined by the common C convention).
 • %p The void * pointer argument has to be printed in hexadecimal format.
@@ -49,6 +56,3 @@ int	main(void)
 • %X Prints a number in hexadecimal (base 16) uppercase format.
 • %% Prints a percent sign.
 */
-	ft_printf("hi", "hello", "hey", NULL);
-	return 0;
-}
