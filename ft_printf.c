@@ -20,15 +20,15 @@ void	check_id_and_print(const char *format, va_list args)
 	if (*format == 's')
 		ret_val += ft_putstr(va_arg(args, char *));
 	// if (*format == 'p')
-	// 	ret_value += ft_print_ptr(va_arg(args, void *));
-	// if (*format == 'd' || *format == 'i')
-	// 	ret_value += ft_putnbr(va_arg(args, int));
+	// 	ret_val += ft_print_ptr(va_arg(args, void *));
+	if (*format == 'd')
+		ret_val += ft_putnbr(va_arg(args, int));
 	// if (*format == 'u')
-	// 	ret_value += ft_putnbr(va_arg(args, unsigned int));
+	// 	ret_val += ft_putnbr(va_arg(args, unsigned int));
 	// if (*format == 'x')
-	// 	ret_value += ft_print_hex_low(va_arg(args, unsigned int));
+	// 	ret_val += ft_print_hex_low(va_arg(args, unsigned int));
 	// if (*format == 'X')
-	// 	ret_value += ft_print_hex_up(va_arg(args, unsigned int));
+	// 	ret_val += ft_print_hex_up(va_arg(args, unsigned int));
 }
 
 int	ft_printf(const char *format, ...)
@@ -56,6 +56,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	printf("ret:%d\n", ft_printf("Hello %%s\n", "World"));
+	printf("ret:%d\n", ft_printf("%d\n", 15));
 	return 0;
 }
