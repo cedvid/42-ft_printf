@@ -10,7 +10,7 @@ int	ft_putnbr(int num)
 	if (num < 0)
 	{
 		count += ft_putchar('-');
-		ft_putnbr(-num);
+		count += ft_putnbr(-num);
 	}
 	else if (num > 9)
 	{
@@ -19,5 +19,22 @@ int	ft_putnbr(int num)
 	}
 	else
 		count += ft_putchar(num + '0');
+	return (count);
+}
+
+int	ft_print_hex_low(unsigned int num)
+{
+	int count;
+
+	count = 0;
+	if (num > 15)
+	{
+		count += ft_print_hex_low(num / 16);
+		count += ft_print_hex_low(num % 16);
+	}
+	else if (num < 10)
+		count += ft_putchar(num + '0');
+	else
+		count += ft_putchar(num + 'a' - 10);
 	return (count);
 }

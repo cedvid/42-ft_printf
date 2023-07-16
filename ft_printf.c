@@ -11,31 +11,37 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static int	ret_val;
-
-void	check_id_and_print(const char *format, va_list args)
+int	check_id_and_print(const char *format, va_list args)
 {
+	int ret_val;
+
+	ret_val = 0;
 	if (*format == 'c')
 		ret_val += ft_putchar(va_arg(args, int));
 	if (*format == 's')
 		ret_val += ft_putstr(va_arg(args, char *));
-	// if (*format == 'p')
-	// 	ret_val += ft_print_ptr(va_arg(args, void *));
-	if (*format == 'd')
+	if (*format == 'd' || *format == 'i')
+	{
+		if (va_arg(args, double))
+			return (-1);
 		ret_val += ft_putnbr(va_arg(args, int));
+	}
 	// if (*format == 'u')
 	// 	ret_val += ft_putnbr(va_arg(args, unsigned int));
-	// if (*format == 'x')
-	// 	ret_val += ft_print_hex_low(va_arg(args, unsigned int));
+	if (*format == 'x')
+		ret_val += ft_print_hex_low(va_arg(args, unsigned int));
 	// if (*format == 'X')
 	// 	ret_val += ft_print_hex_up(va_arg(args, unsigned int));
+	return (ret_val);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	va_start(args, format);
+	int ret_val;
 
+	ret_val = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -44,7 +50,7 @@ int	ft_printf(const char *format, ...)
 			if (*format == '%')
 				ret_val += ft_putchar('%');
 			else
-			check_id_and_print(format, args);
+			ret_val += check_id_and_print(format, args);
 		}
 		else
 			ret_val += ft_putchar(*format);
@@ -56,6 +62,7 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	printf("ret:%d\n", ft_printf("%d\n", 15));
+	ft_printf("%x\n", 458087404);
+	printf("%x\n", 458087404);
 	return 0;
 }

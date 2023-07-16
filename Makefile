@@ -26,7 +26,7 @@ OBJS_PREFIXED = $(addprefix $(OBJS_DIR),$(OBJS))
 
 $(OBJS_DIR)%.o: %.c ft_printf.h
 	@mkdir -p $(OBJS_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS_PREFIXED)
 	@ar r $(NAME) $(OBJS_PREFIXED)
