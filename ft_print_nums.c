@@ -49,3 +49,20 @@ int	ft_print_hex_low(unsigned int num)
 		count += ft_putchar(num + 'a' - 10);
 	return (count);
 }
+
+int	ft_print_hex_up(unsigned int num)
+{
+	int	count;
+
+	count = 0;
+	if (num > 15)
+	{
+		count += ft_print_hex_low(num / 16);
+		count += ft_print_hex_up(num % 16);
+	}
+	else if (num < 10)
+		count += ft_putchar(num + '0');
+	else
+		count += ft_putchar(num + 'A' - 10);
+	return (count);
+}

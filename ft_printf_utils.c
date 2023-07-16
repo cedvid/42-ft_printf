@@ -32,6 +32,8 @@ int	ft_putstr(char const *s)
 	int		i;
 	int		count;
 
+	if (!s)
+		return (-1);
 	i = 0;
 	count = ft_strlen(s);
 	while (s[i])

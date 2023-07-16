@@ -24,6 +24,8 @@ int	check_id_and_print(const char *format, va_list args)
 		ret_val += ft_putnbr(va_arg(args, int));
 	if (*format == 'x')
 		ret_val += ft_print_hex_low(va_arg(args, unsigned int));
+	if (*format == 'X')
+		ret_val += ft_print_hex_up(va_arg(args, unsigned int));
 	return (ret_val);
 }
 
@@ -52,11 +54,10 @@ int	ft_printf(const char *format, ...)
 	return (ret_val);
 }
 
-int	main(void)
-{
-	int n = ft_printf("%d, %i\n", 42, 42);
-	printf("%d\n", n);
-	// printf("%d\n", ft_printf("%d, %i\n", 42, 42));
-	// printf("%d\n",printf("%d, %i\n", 42, 42));
-	return (0);
-}
+// int	main(void)
+// {
+// 	// printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
+// 	printf("%d\n", ft_printf("%x, %X\n", -452817, 42));
+// 	printf("%d\n",printf("%x, %X\n", -452817, 42));
+// 	return (0);
+// }
