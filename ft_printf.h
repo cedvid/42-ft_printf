@@ -18,9 +18,9 @@
 
 int	ft_printf(const char *format, ...);
 int	ft_strlen(const char *s);
-int	ft_putchar(char c);
-int	ft_putstr(char const *s);
-int	ft_putnbr(int num);
+int	ft_print_char(char c);
+int	ft_print_str(char const *s);
+int	ft_print_nbr(int num);
 int	ft_print_hex_low(unsigned int num);
 int	ft_print_hex_up(unsigned int num);
 

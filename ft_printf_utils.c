@@ -21,13 +21,13 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-int	ft_putchar(char c)
+int	ft_print_char(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_putstr(char const *s)
+int	ft_print_str(char const *s)
 {
 	int		i;
 	int		count;
@@ -38,7 +38,7 @@ int	ft_putstr(char const *s)
 	count = ft_strlen(s);
 	while (s[i])
 	{
-		ft_putchar(s[i]);
+		ft_print_char(s[i]);
 		i++;
 	}
 	return (count);

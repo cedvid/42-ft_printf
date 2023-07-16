@@ -17,11 +17,13 @@ int	check_format(const char *format, va_list args)
 
 	ret_val = 0;
 	if (*format == 'c')
-		ret_val += ft_putchar(va_arg(args, int));
+		ret_val += ft_print_char(va_arg(args, int));
 	if (*format == 's')
-		ret_val += ft_putstr(va_arg(args, char *));
+		ret_val += ft_print_str(va_arg(args, char *));
 	if (*format == 'd' || *format == 'i')
-		ret_val += ft_putnbr(va_arg(args, int));
+		ret_val += ft_print_nbr(va_arg(args, int));
+	if (*format == 'u')
+		ret_val += ft_print_nbr(va_arg(args, unsigned int));
 	if (*format == 'x')
 		ret_val += ft_print_hex_low(va_arg(args, unsigned int));
 	if (*format == 'X')
@@ -42,22 +44,23 @@ int	ft_printf(const char *format, ...)
 		{	
 			format++;
 			if (*format == '%')
-				ret_val += ft_putchar('%');
+				ret_val += ft_print_char('%');
 			else
 				ret_val += check_format(format, args);
 		}
 		else
-			ret_val += ft_putchar(*format);
+			ret_val += ft_print_char(*format);
 		format++;
 	}
 	va_end(args);
 	return (ret_val);
 }
 
-int	main(void)
-{
-	printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
-	// printf("%d\n", ft_printf());
-	// printf("%d\n", printf());
-	return (0);
-}
+// int	main(void)
+// {
+// 	int i = -1;
+// 	// printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
+// 	// printf("%d\n", ft_printf("%u\n", i));
+// 	printf("%d\n", printf("%u\n", i));
+// 	return (0);
+// }

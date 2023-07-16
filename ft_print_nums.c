@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_putnbr(int num)
+int	ft_print_nbr(int num)
 {
 	int	count;
 
@@ -20,16 +20,16 @@ int	ft_putnbr(int num)
 		return (write(1, "-2147483648", 11));
 	if (num < 0)
 	{
-		count += ft_putchar('-');
-		count += ft_putnbr(-num);
+		count += ft_print_char('-');
+		count += ft_print_nbr(-num);
 	}
 	else if (num > 9)
 	{
-		count += ft_putnbr(num / 10);
-		count += ft_putnbr(num % 10);
+		count += ft_print_nbr(num / 10);
+		count += ft_print_nbr(num % 10);
 	}
 	else
-		count += ft_putchar(num + '0');
+		count += ft_print_char(num + '0');
 	return (count);
 }
 
@@ -44,9 +44,9 @@ int	ft_print_hex_low(unsigned int num)
 		count += ft_print_hex_low(num % 16);
 	}
 	else if (num < 10)
-		count += ft_putchar(num + '0');
+		count += ft_print_char(num + '0');
 	else
-		count += ft_putchar(num + 'a' - 10);
+		count += ft_print_char(num + 'a' - 10);
 	return (count);
 }
 
@@ -61,8 +61,8 @@ int	ft_print_hex_up(unsigned int num)
 		count += ft_print_hex_up(num % 16);
 	}
 	else if (num < 10)
-		count += ft_putchar(num + '0');
+		count += ft_print_char(num + '0');
 	else
-		count += ft_putchar(num + 'A' - 10);
+		count += ft_print_char(num + 'A' - 10);
 	return (count);
 }
