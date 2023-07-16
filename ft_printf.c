@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	check_id_and_print(const char *format, va_list args)
+int	check_format(const char *format, va_list args)
 {
 	int	ret_val;
 
@@ -44,7 +44,7 @@ int	ft_printf(const char *format, ...)
 			if (*format == '%')
 				ret_val += ft_putchar('%');
 			else
-				ret_val += check_id_and_print(format, args);
+				ret_val += check_format(format, args);
 		}
 		else
 			ret_val += ft_putchar(*format);
@@ -54,10 +54,10 @@ int	ft_printf(const char *format, ...)
 	return (ret_val);
 }
 
-// int	main(void)
-// {
-// 	// printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
-// 	printf("%d\n", ft_printf("%x, %X\n", -452817, 42));
-// 	printf("%d\n",printf("%x, %X\n", -452817, 42));
-// 	return (0);
-// }
+int	main(void)
+{
+	printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
+	// printf("%d\n", ft_printf());
+	// printf("%d\n", printf());
+	return (0);
+}
