@@ -6,14 +6,14 @@
 /*   By: cvidot <cvidot@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:57:21 by cvidot            #+#    #+#             */
-/*   Updated: 2023/07/12 16:30:02 by cvidot           ###   ########.fr       */
+/*   Updated: 2023/07/16 10:47:50 by cvidot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	check_id_and_print(const char *format, va_list args)
 {
-	int ret_val;
+	int	ret_val;
 
 	ret_val = 0;
 	if (*format == 'c')
@@ -37,10 +37,10 @@ int	check_id_and_print(const char *format, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
+	int		ret_val;
 	va_list	args;
-	va_start(args, format);
-	int ret_val;
 
+	va_start(args, format);
 	ret_val = 0;
 	while (*format)
 	{
@@ -50,7 +50,7 @@ int	ft_printf(const char *format, ...)
 			if (*format == '%')
 				ret_val += ft_putchar('%');
 			else
-			ret_val += check_id_and_print(format, args);
+				ret_val += check_id_and_print(format, args);
 		}
 		else
 			ret_val += ft_putchar(*format);
@@ -64,5 +64,5 @@ int	main(void)
 {
 	ft_printf("%x\n", 458087404);
 	printf("%x\n", 458087404);
-	return 0;
+	return (0);
 }

@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cvidot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/16 11:02:24 by cvidot            #+#    #+#             */
+/*   Updated: 2023/07/16 11:03:25 by cvidot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ft_printf.h"
- 
+
 int	ft_strlen(const char *s)
 {
 	int	i;
@@ -19,7 +30,7 @@ int	ft_putchar(char c)
 int	ft_putstr(char const *s)
 {
 	int		i;
-	int count;
+	int		count;
 
 	i = 0;
 	count = ft_strlen(s);

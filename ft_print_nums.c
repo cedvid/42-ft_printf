@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_nums.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cvidot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/16 11:04:10 by cvidot            #+#    #+#             */
+/*   Updated: 2023/07/16 11:04:42 by cvidot           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ft_printf.h"
 
 int	ft_putnbr(int num)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (num == -2147483648)
@@ -24,7 +35,7 @@ int	ft_putnbr(int num)
 
 int	ft_print_hex_low(unsigned int num)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (num > 15)
