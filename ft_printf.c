@@ -28,6 +28,8 @@ int	check_format(const char *format, va_list args)
 		ret_val += ft_print_hex_low(va_arg(args, unsigned int));
 	if (*format == 'X')
 		ret_val += ft_print_hex_up(va_arg(args, unsigned int));
+	if (*format == 'p')
+		ret_val += ft_print_ptr(va_arg(args, void *));
 	return (ret_val);
 }
 
@@ -56,11 +58,11 @@ int	ft_printf(const char *format, ...)
 	return (ret_val);
 }
 
-// int	main(void)
-// {
-// 	int i = -1;
-// 	// printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
-// 	// printf("%d\n", ft_printf("%u\n", i));
-// 	printf("%d\n", printf("%u\n", i));
-// 	return (0);
-// }
+int	main(void)
+{
+	int i = -42;
+	int *ptr = &i;
+	printf("%d\n", printf("%p\n", ptr));
+	ft_printf("%p\n", ptr);
+	return (0);
+}

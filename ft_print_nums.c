@@ -66,3 +66,18 @@ int	ft_print_hex_up(unsigned int num)
 		count += ft_print_char(num + 'A' - 10);
 	return (count);
 }
+
+int	ft_print_ptr(void *ptr)
+{
+	int	count;
+	uintptr_t int_ptr;
+	
+	count = 0;
+	int_ptr = (uintptr_t)ptr;
+
+	count += ft_print_char('0');
+	count += ft_print_char('x');
+	ft_print_hex_low(int_ptr);
+	// printf("%ld", int_ptr);
+	return 0;
+}
