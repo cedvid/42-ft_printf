@@ -6,7 +6,7 @@
 /*   By: cvidot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 11:04:10 by cvidot            #+#    #+#             */
-/*   Updated: 2023/07/16 11:04:42 by cvidot           ###   ########.fr       */
+/*   Updated: 2023/07/18 14:02:02 by cvidot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -84,15 +84,13 @@ int	ft_print_hex_up(unsigned int num)
 
 int	ft_print_ptr(void *ptr)
 {
-	int	count;
-	uintptr_t int_ptr;
-	
+	int			count;
+	uintptr_t	int_ptr;
+
 	count = 0;
 	int_ptr = (uintptr_t)ptr;
-
 	count += ft_print_char('0');
 	count += ft_print_char('x');
-	ft_print_hex_low(int_ptr);
-	// printf("%ld", int_ptr);
-	return 0;
+	count += ft_print_hex_low(int_ptr);
+	return (count);
 }
