@@ -33,6 +33,21 @@ int	ft_print_nbr(int num)
 	return (count);
 }
 
+int	ft_print_unnbr(unsigned int num)
+{
+	int	count;
+
+	count = 0;
+	if (num > 9)
+	{
+		count += ft_print_unnbr(num / 10);
+		count += ft_print_unnbr(num % 10);
+	}
+	else
+		count += ft_print_char(num + '0');
+	return (count);
+}
+
 int	ft_print_hex_low(unsigned int num)
 {
 	int	count;
@@ -57,7 +72,7 @@ int	ft_print_hex_up(unsigned int num)
 	count = 0;
 	if (num > 15)
 	{
-		count += ft_print_hex_low(num / 16);
+		count += ft_print_hex_up(num / 16);
 		count += ft_print_hex_up(num % 16);
 	}
 	else if (num < 10)
