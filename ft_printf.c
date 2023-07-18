@@ -23,13 +23,15 @@ int	check_format(const char *format, va_list args)
 	if (*format == 'd' || *format == 'i')
 		ret_val += ft_print_nbr(va_arg(args, int));
 	if (*format == 'u')
-		ret_val += ft_print_nbr(va_arg(args, unsigned int));
+		ret_val += ft_print_unnbr(va_arg(args, unsigned int));
 	if (*format == 'x')
 		ret_val += ft_print_hex_low(va_arg(args, unsigned int));
 	if (*format == 'X')
 		ret_val += ft_print_hex_up(va_arg(args, unsigned int));
 	if (*format == 'p')
 		ret_val += ft_print_ptr(va_arg(args, void *));
+	if (*format == '%')
+		ret_val += ft_print_percent();
 	return (ret_val);
 }
 
@@ -45,10 +47,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{	
 			format++;
-			if (*format == '%')
-				ret_val += ft_print_char('%');
-			else
-				ret_val += check_format(format, args);
+			ret_val += check_format(format, args);
 		}
 		else
 			ret_val += ft_print_char(*format);
@@ -58,11 +57,12 @@ int	ft_printf(const char *format, ...)
 	return (ret_val);
 }
 
-int	main(void)
-{
-	int i = -42;
-	int *ptr = &i;
-	printf("%d\n", printf("%p\n", ptr));
-	ft_printf("%p\n", ptr);
-	return (0);
-}
+// int	main(void)
+// {
+// 	int i = 42;
+// 	int *ptr = &i;
+// 	printf("%p\n", ptr);
+// 	ft_printf("%p\n", ptr);
+// 	ft_printf("%%");
+// 	return (0);
+// }

@@ -44,6 +44,12 @@ int	ft_print_str(char const *s)
 	return (count);
 }
 
+int	ft_print_percent(void)
+{
+	write(1, "%", 1);
+	return (1);
+}
+
 // • %c Prints a single character.
 // • %s Prints a string (as defined by the common C convention).
 // • %p The void * pointer argument has to be printed in hexadecimal format.
