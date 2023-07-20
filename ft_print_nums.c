@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_nums.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cvidot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cvidot <cvidot@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 11:04:10 by cvidot            #+#    #+#             */
 /*   Updated: 2023/07/18 14:02:02 by cvidot           ###   ########.fr       */
@@ -79,18 +79,5 @@ int	ft_print_hex_up(unsigned int num)
 		count += ft_print_char(num + '0');
 	else
 		count += ft_print_char(num + 'A' - 10);
-	return (count);
-}
-
-int	ft_print_ptr(void *ptr)
-{
-	int			count;
-	uintptr_t	int_ptr;
-
-	count = 0;
-	int_ptr = (uintptr_t)ptr;
-	count += ft_print_char('0');
-	count += ft_print_char('x');
-	count += ft_print_hex_low(int_ptr);
 	return (count);
 }

@@ -57,12 +57,12 @@ int	ft_printf(const char *format, ...)
 	return (ret_val);
 }
 
-// int	main(void)
-// {
-// 	int i = 42;
-// 	int *ptr = &i;
-// 	printf("%p\n", ptr);
-// 	ft_printf("%p\n", ptr);
-// 	ft_printf("%%");
-// 	return (0);
-// }
+int	main(void)
+{
+	// int i = 42;
+	// int *ptr = &i;
+
+	// printf("%d\n", printf("%p\n", 0));
+	printf("%d\n", ft_printf("%p\n", NULL));
+	return (0);
+}

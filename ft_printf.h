@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cvidot <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cvidot <cvidot@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 10:48:50 by cvidot            #+#    #+#             */
 /*   Updated: 2023/07/18 13:59:46 by cvidot           ###   ########.fr       */
@@ -16,6 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdint.h>
+
+#define HEX_CHARS "0123456789abcdef"
 
 int	ft_printf(const char *format, ...);
 int	ft_strlen(const char *s);
