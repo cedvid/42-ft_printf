@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_printf.c ft_printf_utils.c ft_print_nums.c
+SRCS = ft_printf.c ft_printf_utils.c ft_print_nums.c ft_print_ptrs.c
 
 NAME = libftprintf.a
 
