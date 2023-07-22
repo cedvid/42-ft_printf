@@ -15,8 +15,6 @@ int	ft_strlen(const char *s)
 {
 	int	i;
 
-	if (!s)
-		s = "(null)";
 	i = 0;
 	while (s[i] != '\0')
 		i++;
@@ -34,9 +32,9 @@ int	ft_print_str(char const *s)
 	int		i;
 	int		count;
 
-	if (!s)
-		return (-1);
 	i = 0;
+	if (!s)
+		s = "(null)";
 	count = ft_strlen(s);
 	while (s[i])
 	{
