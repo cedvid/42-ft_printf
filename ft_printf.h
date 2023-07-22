@@ -17,8 +17,6 @@
 # include <unistd.h>
 # include <stdint.h>
 
-#define HEX_CHARS "0123456789abcdef"
-
 int	ft_printf(const char *format, ...);
 int	ft_strlen(const char *s);
 int	ft_print_char(char c);
