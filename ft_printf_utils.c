@@ -30,26 +30,16 @@ int	ft_print_char(char c)
 int	ft_print_str(char const *s)
 {
 	int		i;
-	int		count;
+	int		printed_chars;
 
 	i = 0;
 	if (!s)
 		s = "(null)";
-	count = ft_strlen(s);
+	printed_chars = ft_strlen(s);
 	while (s[i])
 	{
 		ft_print_char(s[i]);
 		i++;
 	}
-	return (count);
+	return (printed_chars);
 }
-
-// • %c Prints a single character.
-// • %s Prints a string (as defined by the common C convention).
-// • %p The void * pointer argument has to be printed in hexadecimal format.
-// • %d Prints a decimal (base 10) number.
-// • %i Prints an integer in base 10.
-// • %u Prints an unsigned decimal (base 10) number.
-// • %x Prints a number in hexadecimal (base 16) lowercase format.
-// • %X Prints a number in hexadecimal (base 16) uppercase format.
-// • %% Prints a percent sign.

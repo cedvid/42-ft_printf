@@ -6,62 +6,53 @@
 /*   By: cvidot <cvidot@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:57:21 by cvidot            #+#    #+#             */
-/*   Updated: 2023/07/16 11:23:16 by cvidot           ###   ########.fr       */
+/*   Updated: 2023/07/22 16:34:59 by cvidot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	check_format(const char *format, va_list args)
 {
-	int	ret_val;
+	int	printed_chars;
 
-	ret_val = 0;
+	printed_chars = 0;
 	if (*format == 'c')
-		ret_val += ft_print_char(va_arg(args, int));
+		printed_chars += ft_print_char(va_arg(args, int));
 	if (*format == 's')
-		ret_val += ft_print_str(va_arg(args, char *));
+		printed_chars += ft_print_str(va_arg(args, char *));
 	if (*format == 'd' || *format == 'i')
-		ret_val += ft_print_nbr(va_arg(args, int));
+		printed_chars += ft_print_nbr(va_arg(args, int));
 	if (*format == 'u')
-		ret_val += ft_print_unnbr(va_arg(args, unsigned int));
+		printed_chars += ft_print_unnbr(va_arg(args, unsigned int));
 	if (*format == 'x')
-		ret_val += ft_print_hex_low(va_arg(args, unsigned int));
+		printed_chars += ft_print_hex_low(va_arg(args, unsigned int));
 	if (*format == 'X')
-		ret_val += ft_print_hex_up(va_arg(args, unsigned int));
+		printed_chars += ft_print_hex_up(va_arg(args, unsigned int));
 	if (*format == 'p')
-		ret_val += ft_print_ptr(va_arg(args, void *));
+		printed_chars += ft_print_ptr(va_arg(args, void *));
 	if (*format == '%')
-		ret_val += ft_print_char('%');
-	return (ret_val);
+		printed_chars += ft_print_char('%');
+	return (printed_chars);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int		ret_val;
+	int		printed_chars;
 	va_list	args;
 
 	va_start(args, format);
-	ret_val = 0;
+	printed_chars = 0;
 	while (*format)
 	{
 		if (*format == '%')
-		{	
+		{
 			format++;
-			ret_val += check_format(format, args);
+			printed_chars += check_format(format, args);
 		}
 		else
-			ret_val += ft_print_char(*format);
+			printed_chars += ft_print_char(*format);
 		format++;
 	}
 	va_end(args);
-	return (ret_val);
-}
-
-int	main(void)
-{
-	// printf print percent sign
-	printf("printf: %d\n", printf("%%\n"));
-	// ft_printf print percent sign
-	printf("ft_printf: %d\n", ft_printf("%%\n"));
-	return (0);
+	return (printed_chars);
 }

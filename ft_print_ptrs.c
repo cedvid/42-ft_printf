@@ -32,23 +32,23 @@ int	ft_print_ptr(void *ptr)
 {
 	uintptr_t	int_ptr;
 	char		hex_digits[16];
-	int			count;
+	int			printed_chars;
 	int			hex_len;
 
-	count = 0;
+	printed_chars = 0;
 	hex_len = 0;
 	if (!ptr)
-		count += ft_print_str("(nil)");
+		printed_chars += ft_print_str("(nil)");
 	else
 	{
 		int_ptr = (uintptr_t)ptr;
-		count += ft_print_str("0x");
+		printed_chars += ft_print_str("0x");
 		ft_get_hex_str(int_ptr, hex_digits, &hex_len);
 		while (hex_len - 1 >= 0)
 		{
-			count += ft_print_char(hex_digits[hex_len - 1]);
+			printed_chars += ft_print_char(hex_digits[hex_len - 1]);
 			hex_len--;
 		}
 	}
-	return (count);
+	return (printed_chars);
 }
