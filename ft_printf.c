@@ -31,7 +31,7 @@ int	check_format(const char *format, va_list args)
 	if (*format == 'p')
 		ret_val += ft_print_ptr(va_arg(args, void *));
 	if (*format == '%')
-		ret_val += ft_print_percent();
+		ret_val += ft_print_char('%');
 	return (ret_val);
 }
 
@@ -59,10 +59,9 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	// int i = 42;
-	// int *ptr = &i;
-
-	// printf("%d\n", printf("%p\n", 0));
-	printf("%d\n", ft_printf("%p\n", NULL));
+	// printf print percent sign
+	printf("printf: %d\n", printf("%%\n"));
+	// ft_printf print percent sign
+	printf("ft_printf: %d\n", ft_printf("%%\n"));
 	return (0);
 }
