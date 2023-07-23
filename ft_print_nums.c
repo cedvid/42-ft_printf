@@ -64,6 +64,14 @@ int	ft_print_unnbr(unsigned int num)
 		printed_chars += ft_print_char(num + 'a' - 10);
 	return (printed_chars);
 }*/
+int	ft_convert_hex(int tmp, char format)
+{
+	if (format == 'X')
+		return (tmp + 55);
+	else
+		return (tmp + 87);
+	return (tmp);
+}
 
 int	ft_print_hex(unsigned int num, char format)
 {
@@ -82,12 +90,7 @@ int	ft_print_hex(unsigned int num, char format)
 		if (tmp < 10)
 			tmp += 48;
 		else
-		{
-			if (format == 'X')
-				tmp += 55;
-			else
-				tmp += 87;
-		}
+			tmp = ft_convert_hex(tmp, format);
 		hex_num[i++] = tmp;
 		num /= 16;
 	}
