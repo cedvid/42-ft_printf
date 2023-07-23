@@ -48,7 +48,7 @@ int	ft_print_unnbr(unsigned int num)
 	return (printed_chars);
 }
 
-int	ft_print_hex_low(unsigned int num)
+/*int	ft_print_hex_low(unsigned int num)
 {
 	int	printed_chars;
 
@@ -62,6 +62,35 @@ int	ft_print_hex_low(unsigned int num)
 		printed_chars += ft_print_char(num + '0');
 	else
 		printed_chars += ft_print_char(num + 'a' - 10);
+	return (printed_chars);
+}*/
+
+int	ft_print_hex(unsigned int num, char format)
+{
+	int		i;
+	int		tmp;
+	int		printed_chars;
+	char	hex_num[100];
+
+	i = 0;
+	tmp = 0;
+	while (num)
+	{
+		tmp = num % 16;
+		if (tmp < 10)
+			tmp += 48;
+		else
+		{
+			if (format == 'X')
+				tmp += 55;
+			else
+				tmp += 87;
+		}
+		hex_num[i++] = tmp;
+		num /= 16;
+	}
+	while (i > 0)
+		printed_chars += ft_print_char(hex_num[--i]);
 	return (printed_chars);
 }
 

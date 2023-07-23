@@ -24,10 +24,8 @@ int	check_format(const char *format, va_list args)
 		printed_chars += ft_print_nbr(va_arg(args, int));
 	if (*format == 'u')
 		printed_chars += ft_print_unnbr(va_arg(args, unsigned int));
-	if (*format == 'x')
-		printed_chars += ft_print_hex_low(va_arg(args, unsigned int));
-	if (*format == 'X')
-		printed_chars += ft_print_hex_up(va_arg(args, unsigned int));
+	if (*format == 'x' || *format == 'X')
+		printed_chars += ft_print_hex(va_arg(args, unsigned int), *format);
 	if (*format == 'p')
 		printed_chars += ft_print_ptr(va_arg(args, void *));
 	if (*format == '%')
