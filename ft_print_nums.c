@@ -48,22 +48,6 @@ int	ft_print_unnbr(unsigned int num)
 	return (printed_chars);
 }
 
-/*int	ft_print_hex_low(unsigned int num)
-{
-	int	printed_chars;
-
-	printed_chars = 0;
-	if (num > 15)
-	{
-		printed_chars += ft_print_hex_low(num / 16);
-		printed_chars += ft_print_hex_low(num % 16);
-	}
-	else if (num < 10)
-		printed_chars += ft_print_char(num + '0');
-	else
-		printed_chars += ft_print_char(num + 'a' - 10);
-	return (printed_chars);
-}*/
 int	ft_convert_hex(int tmp, char format)
 {
 	if (format == 'X')
@@ -96,22 +80,5 @@ int	ft_print_hex(unsigned int num, char format)
 	}
 	while (i > 0)
 		printed_chars += ft_print_char(hex_num[--i]);
-	return (printed_chars);
-}
-
-int	ft_print_hex_up(unsigned int num)
-{
-	int	printed_chars;
-
-	printed_chars = 0;
-	if (num > 15)
-	{
-		printed_chars += ft_print_hex_up(num / 16);
-		printed_chars += ft_print_hex_up(num % 16);
-	}
-	else if (num < 10)
-		printed_chars += ft_print_char(num + '0');
-	else
-		printed_chars += ft_print_char(num + 'A' - 10);
 	return (printed_chars);
 }
