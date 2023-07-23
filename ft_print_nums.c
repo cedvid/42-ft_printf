@@ -70,10 +70,12 @@ int	ft_print_hex(unsigned int num, char format)
 	int		i;
 	int		tmp;
 	int		printed_chars;
-	char	hex_num[100];
+	char	hex_num[9];
 
 	i = 0;
-	tmp = 0;
+	printed_chars = 0;
+	if (!num)
+		return (ft_print_char('0'));
 	while (num)
 	{
 		tmp = num % 16;
